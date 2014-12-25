@@ -38,6 +38,8 @@ public class API {
             log.info("Request: " + data);
             boolean isNormalized = true; // default
             boolean isStemmed = false; // default
+            boolean keepSpaces = false; // default
+
             if (null != normalize) {
                 try {
                     isNormalized = Boolean.parseBoolean(normalize);
@@ -54,7 +56,7 @@ public class API {
             }
 
             // Tokenize
-            Seq<String> parsed = TwitterKoreanProcessor.tokenizeToStrings(data, isNormalized, isStemmed);
+            Seq<String> parsed = TwitterKoreanProcessor.tokenizeToStrings(data, isNormalized, isStemmed, keepSpaces);
             //Seq<String> parsed = TwitterKoreanProcessor.tokenizeToNormalizedStrings(data); // Old API
             List<String> javaParsed = JavaConversions.seqAsJavaList(parsed);
 
@@ -84,6 +86,8 @@ public class API {
             log.debug("Request: " + data);
             boolean isNormalized = true; // default
             boolean isStemmed = false; // default
+            boolean keepSpaces = false; // default
+
             if (null != normalize) {
                 try {
                     isNormalized = Boolean.parseBoolean(normalize);
@@ -100,7 +104,8 @@ public class API {
             }
 
             // Tokenize
-            Seq<KoreanTokenizer.KoreanToken> parsedPos = TwitterKoreanProcessor.tokenize(data, isNormalized, isStemmed);
+            Seq<KoreanTokenizer.KoreanToken> parsedPos = TwitterKoreanProcessor
+                .tokenize(data, isNormalized, isStemmed, keepSpaces);
             List<KoreanTokenizer.KoreanToken> javaParsedPos = JavaConversions.seqAsJavaList(parsedPos);
             List<Token> tokenList = new ArrayList<Token>();
 
