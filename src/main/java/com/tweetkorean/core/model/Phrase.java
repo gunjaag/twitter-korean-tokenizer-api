@@ -1,24 +1,24 @@
 package com.tweetkorean.core.model;
 
-public class Token {
-    private String token;
+public class Phrase {
+    private String phrase;
     private String type;
     private int offset;
     private int length;
 
-    public Token(String token, String type) {
-        new Token(token, type, -1, -1);
+    public Phrase(String phrase, String type) {
+        new Phrase(phrase, type, -1, -1);
     }
 
-    public Token(String token, String type, int offset, int length) {
-        this.token = token;
+    public Phrase(String phrase, String type, int offset, int length) {
+        this.phrase = phrase;
         this.type = type;
         this.offset = offset;
         this.length = length;
     }
 
-    public String getToken() {
-        return token;
+    public String getPhrase() {
+        return phrase;
     }
 
     public String getType() {
